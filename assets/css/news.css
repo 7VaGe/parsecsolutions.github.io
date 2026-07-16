@@ -1,0 +1,105 @@
+/* =============================================================
+   NEWS — Bento Grid 3D + micro-interazioni (Frenata Tech, Tilt, Glow)
+   Costruita sui token e sulle .p-card del design system globale.
+   ============================================================= */
+
+/* Contenitore: clip orizzontale per evitare scrollbar durante la "frenata" */
+.news-wrap { overflow-x: clip; }
+
+/* ---------- Bento Grid asimmetrica ---------- */
+.news-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 210px;
+  gap: 1.4rem;
+  perspective: 1000px;   /* profondità per il tilt 3D */
+}
+
+/* La card news riusa il linguaggio visivo di .p-card (immagine + scrim 4 stadi + testo in basso) */
+.n-card {
+  min-height: 0; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .5s var(--ease), border-color .35s;
+  will-change: transform;
+}
+.n-card--featured { grid-column: span 2; grid-row: span 2; }
+
+/* Durante il movimento del cursore il tilt è reattivo; al rilascio torna morbido */
+.n-card.is-tilting { transition: transform .08s linear; }
+.n-card.is-tilting .p-card__img { transition: transform .08s linear; }
+
+/* Meta + testo dentro il body della p-card */
+.n-date { font-family: var(--font-head); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); margin-bottom: .5rem; display: block; }
+.n-card .p-card__title { font-size: 1.15rem; }
+.n-card--featured .p-card__title { font-size: clamp(1.4rem, 2.6vw, 2rem); }
+.n-card--featured .p-card__text { font-size: 1rem; -webkit-line-clamp: 3; }
+.n-card .p-card__text {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+}
+
+/* Parallasse dell'immagine (mossa in JS in direzione opposta al tilt) */
+.n-card .p-card__img { transition: transform .3s var(--ease); }
+
+/* Glow border 1px ciano/blu che si accende sul contatto del cursore */
+.n-card::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1px;
+  background: linear-gradient(130deg, rgba(34,211,238,.8), rgba(59,130,246,.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .3s; pointer-events: none;
+}
+.n-card:hover::after { opacity: 1; }
+/* Riflesso luminoso che segue il cursore */
+.n-glow {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(34,211,238,.16), transparent 60%);
+  opacity: 0; transition: opacity .3s;
+}
+.n-card:hover .n-glow { opacity: 1; }
+
+/* ---------- A. Frenata Tech (solo Featured) ---------- */
+.n-card--featured {
+  transition:
+    transform .85s cubic-bezier(0.175, 0.885, 0.32, 1.15),
+    opacity .6s ease-out,
+    filter .5s ease-out;
+}
+.n-card--featured.is-arriving {
+  transform: translateX(70px) skewX(-5deg);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+/* ---------- Skeleton Loading (shimmer "scansione circuiti") ---------- */
+.n-skel {
+  position: relative; overflow: hidden; height: 100%;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.n-skel::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(34,211,238,.10) 45%, rgba(255,255,255,.06) 50%, rgba(34,211,238,.10) 55%, transparent 72%);
+  transform: translateX(-120%);
+  animation: nShimmer 1.5s ease-in-out infinite;
+}
+@keyframes nShimmer { to { transform: translateX(120%); } }
+
+/* Stato di errore / vuoto (fallback badge) */
+.news-fallback-note { grid-column: 1 / -1; font-size: .8rem; color: var(--text-dim); border-left: 2px solid var(--border); padding-left: .8rem; margin-top: .2rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .news-bento { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
+  .n-card--featured { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 720px) {
+  .news-bento { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .n-card--featured { grid-column: span 1; grid-row: span 1; }
+  /* Frenata con raggio ridotto su X per non generare scrollbar */
+  .n-card--featured.is-arriving { transform: translateX(22px) skewX(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .n-card, .n-card .p-card__img, .n-card--featured { transition: none !important; }
+  .n-card--featured.is-arriving { transform: none; opacity: 1; filter: none; }
+  .n-skel::after { animation: none; }
+}

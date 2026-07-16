@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parsec Solutions Srl — Soluzioni SAP IT</title>
+  <meta name="description" content="Parsec Solutions Srl: consulenza SAP IT applicativa e tecnico-sistemistica a Bologna. Gestione sistemi, gestione documentale, fatturazione elettronica e finance automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <!-- ============ HERO CINEMATICO — stella cromata 3D + scroll fly-through ============ -->
+  <section class="cinematic">
+    <div class="cinematic-sticky">
+      <canvas id="cine-canvas"></canvas>
+      <div class="cine-vignette"></div>
+
+      <div class="cine-stages">
+        <div class="cine-stage" data-stage="0">
+          <span class="cine-eyebrow">Consulenza SAP IT </span>
+          <h1 class="kinetic">Il tuo sistema SAP<br><span class="thin">come non l'hai mai visto</span></h1>
+        </div>
+        <div class="cine-stage" data-stage="1">
+          <h2 class="kinetic">Sistemi - Documenti - <br><span class="thin">Automazione.</span></h2>
+          <p class="sub">Oltre un decennio di esperienza al servizio del tuo business.</p>
+        </div>
+        <div class="cine-stage" data-stage="2">
+          <h2 class="kinetic">Collaboriamo.</h2>
+          <p class="sub">Costruiamo insieme la soluzione più adatta alla tua azienda.</p>
+          <div class="hero-actions">
+            <a href="solutions.html" class="btn btn--primary">Scopri le Solutions
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="contatti.html" class="btn btn--ghost">Parla con noi</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue"><div class="mouse"></div>Scorri</div>
+    </div>
+  </section>
+
+  <!-- ============ SCROLL-SCALE: card da fullscreen a card ============ -->
+  <section class="scale-scene">
+    <div class="scale-sticky">
+      <div class="scale-card">
+        <div class="sc-inner">
+          <span class="sc-eyebrow">Principalmente SAP</span>
+          <h2>Tutto il tuo ecosistema SAP,<br>gestito da un solo team</h2>
+          <p>Applicazioni, sistemi e intelligence SAP sotto un unico interlocutore, con la partnership DDM Solutions per i processi documentali: competenza end-to-end.</p>
+          <div class="mock-row">
+            <span class="mock-pill">SAP Application</span>
+            <span class="mock-pill">SAP Basis</span>
+            <span class="mock-pill">SAP BI</span>
+            <span class="mock-pill">DDM Solutions &middot; partner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAROSELLO 3D di card rotanti ============ -->
+  <section class="carousel-scene">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Le nostre competenze</span>
+        <h2>Un anello di soluzioni attorno al tuo business</h2>
+      </div>
+      <div class="stage3d">
+        <div class="ring" id="ring">
+
+          <article class="ring-card" style="--img:url('../img/gestione-sistemi.jpg')">
+              <a class="rc-photo" href="sap-s4hana.html"><span class="rc-index">01</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span>
+                <h3>SAP S/4HANA</h3>
+                <p>L'ERP in-memory di nuova generazione: finance, logistica e produzione in un unico sistema in tempo reale.</p>
+                <a class="rc-cta" href="sap-s4hana.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/infrastruttura.jpg')">
+              <a class="rc-photo" href="sap-digital-platform.html"><span class="rc-index">02</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+                <h3>SAP Digital Platform</h3>
+                <p>Estendi e integra SAP: dati, processi e nuove applicazioni su una piattaforma aperta e scalabile.</p>
+                <a class="rc-cta" href="sap-digital-platform.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/performance-2.jpg')">
+              <a class="rc-photo" href="sap-scm.html"><span class="rc-index">03</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+                <h3>SAP SCM</h3>
+                <p>Supply Chain Management: pianificazione, approvvigionamento e logistica sotto controllo end-to-end.</p>
+                <a class="rc-cta" href="sap-scm.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/consulenza.jpg')">
+              <a class="rc-photo" href="sap-security.html"><span class="rc-index">04</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                <h3>SAP Security</h3>
+                <p>Autorizzazioni, ruoli e protezione dei dati: il tuo SAP conforme e al riparo dagli accessi indebiti.</p>
+                <a class="rc-cta" href="sap-security.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/performance.jpg')">
+              <a class="rc-photo" href="sap-cloud.html"><span class="rc-index">05</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6 19z"/></svg></span>
+                <h3>SAP on Cloud</h3>
+                <p>Il tuo SAP nel cloud: migrazione e gestione su RISE with SAP, AWS, Google Cloud e Azure.</p>
+                <a class="rc-cta" href="sap-cloud.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/virtualizzazione.jpg')">
+              <a class="rc-photo" href="sap-basis.html"><span class="rc-index">06</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>
+                <h3>SAP Basis</h3>
+                <p>Il livello tecnico-sistemistico: archiving, backup, profiling, remote administration, tuning e virtualizzazione.</p>
+                <a class="rc-cta" href="sap-basis.html">6 servizi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+          <article class="ring-card" style="--img:url('../img/performance-2.jpg')">
+              <a class="rc-photo" href="contatti.html"><span class="rc-index">07</span></a>
+              <div class="rc-body">
+                <span class="rc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+                <h3>SAP BI</h3>
+                <p>Business Intelligence: dati eterogenei consolidati nel Business Warehouse e trasformati in dashboard e KPI in tempo reale per decisioni basate sui dati.</p>
+                <a class="rc-cta" href="contatti.html">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
+          </article>
+
+        </div>
+      </div>
+      <p class="carousel-hint">Trascina per ruotare l'anello</p>
+    </div>
+  </section>
+
+
+  <!-- ============ CHI SIAMO (teaser) ============ -->
+  <section class="section section--alt">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Chi Siamo</span>
+        <h2>Un partner affidabile per il tuo sistema SAP</h2>
+        <p style="margin:1.2rem 0">Parsec Solutions nasce dal desiderio di fornire ai clienti SAP un partner affidabile con cui gestire e sviluppare il proprio sistema. Vantiamo un'esperienza più che decennale nella consulenza SAP IT, sia applicativa che tecnico-sistemistica.</p>
+        <p style="margin-bottom:1.6rem">Puntiamo a costruire relazioni durature che portino a un reciproco arricchimento.</p>
+        <a href="chi-siamo.html" class="btn btn--ghost">La nostra storia</a>
+      </div>
+      <div class="split-media media-photo reveal" data-delay="2" style="--img:url('../img/chi-siamo-2.jpg')" role="img" aria-label="Chi siamo"></div>
+    </div>
+  </section>
+
+  <!-- ============ COLLABORIAMO (teaser) ============ -->
+  <section class="section section--alt">
+    <div class="container split">
+      <div class="split-media media-photo reveal" style="--img:url('../img/persone-al-lavoro.jpg')" role="img" aria-label="Persone al lavoro"></div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">Come Lavoriamo</span>
+        <h2>Collaboriamo, non forniamo soltanto</h2>
+        <p style="margin:1.2rem 0">Prima analizziamo e comprendiamo i tuoi processi, poi ottimizziamo i flussi. Non ci limitiamo a fornire una soluzione: costruiamo insieme il percorso più adatto alla tua azienda.</p>
+        <a href="come-lavoriamo.html" class="btn btn--ghost">Il nostro metodo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINALE — ZOOM-IN (stesso principio dello scroll-scale) ============ -->
+  <section class="scale-scene scale-scene--in">
+    <div class="scale-sticky">
+      <div class="scale-card">
+        <div class="sc-inner">
+          <span class="sc-eyebrow">Il prossimo passo</span>
+          <h2>Pronto a portare il tuo sistema SAP<br>al livello successivo?</h2>
+          <p>Raccontaci la tua esigenza: analizziamo insieme il tuo ambiente SAP e individuiamo le priorità.</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:2.2rem">
+            <a href="contatti.html" class="btn btn--primary">Parla con noi
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/bg-field.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home-scenes.js"></script>
+  <script src="assets/js/cinematic.js?v=2"></script>
+</body>
+</html>

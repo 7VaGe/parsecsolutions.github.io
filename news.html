@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News — Parsec Solutions Srl</title>
+  <meta name="description" content="Novità, approfondimenti e aggiornamenti dal mondo SAP e da Parsec Solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/news.css">
+</head>
+<body data-page="news">
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a> / News</div>
+      <h1 class="reveal" data-delay="1"><span class="text-grad">News</span> &amp; Approfondimenti</h1>
+      <p class="lead reveal" data-delay="2">Aggiornamenti dal mondo SAP e dalle attività di Parsec Solutions.</p>
+    </div>
+  </section>
+
+  <section class="section news-wrap" style="padding-top:0">
+    <div class="container">
+      <!-- Bento Grid popolata da news-engine.js (fetch WP REST API, con skeleton e fallback) -->
+      <div class="news-bento" id="newsBento" data-state="loading" aria-live="polite" aria-busy="true"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/bg-field.js"></script>
+  <script src="assets/js/news-engine.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

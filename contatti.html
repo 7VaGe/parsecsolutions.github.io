@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contattaci — Parsec Solutions Srl</title>
+  <meta name="description" content="Contatta Parsec Solutions Srl a Bologna. Via Persicetana Vecchia 28, 40132 Bologna — amministrazione@parsecsolutions.it">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+<body data-page="contatti">
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a> / Contattaci</div>
+      <h1 class="reveal" data-delay="1"><span class="text-grad">Contattaci</span></h1>
+      <p class="lead reveal" data-delay="2">Raccontaci le tue esigenze: costruiamo insieme la soluzione più adatta alla tua azienda.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+
+      <div class="reveal">
+        <span class="eyebrow">Dove siamo</span>
+        <h2>Parsec Solutions Srl</h2>
+        <ul class="check-list" style="margin-top:1.5rem">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Via Persicetana Vecchia 28<br>40132 Bologna (BO)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:amministrazione@parsecsolutions.it">amministrazione@parsecsolutions.it</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 4h16v16H4z" opacity="0"/><path d="M9 7h6M9 12h6M9 17h6M6 7h.01M6 12h.01M6 17h.01"/></svg><span>P.IVA 03768880365</span></li>
+        </ul>
+        <div class="split-media reveal" data-delay="2" style="margin-top:2rem;aspect-ratio:16/9">
+          <svg width="55%" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#22d3ee" stroke-width="1.6">
+            <path d="M20 100 L60 30 L110 70 L150 25 L185 55" opacity="0.5"/>
+            <path d="M100 20c-14 0-25 11-25 25 0 18 25 40 25 40s25-22 25-40c0-14-11-25-25-25z" fill="rgba(34,211,238,0.12)"/>
+            <circle cx="100" cy="45" r="8" fill="#3b82f6"/>
+          </svg>
+        </div>
+      </div>
+
+      <form class="card reveal" data-delay="1" data-form>
+        <div class="form-grid">
+          <div class="field"><label for="c-nome">Nome</label><input id="c-nome" name="nome" type="text" placeholder="Nome" required></div>
+          <div class="field"><label for="c-azienda">Azienda</label><input id="c-azienda" name="azienda" type="text" placeholder="Azienda"></div>
+          <div class="field full"><label for="c-email">Email</label><input id="c-email" name="email" type="email" placeholder="nome@azienda.it" required></div>
+          <div class="field full"><label for="c-oggetto">Oggetto</label>
+            <select id="c-oggetto" name="oggetto">
+              <option>SAP Applications</option>
+              <option>SAP Basis</option>
+              <option>SAP BI</option>
+              <option>DDM Solutions — Documenti &amp; Fatturazione</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="field full"><label for="c-msg">Messaggio</label><textarea id="c-msg" name="msg" placeholder="Come possiamo aiutarti?" required></textarea></div>
+          <label class="checkbox full"><input type="checkbox" required> Autorizzo al trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e successive modificazioni.</label>
+        </div>
+        <button type="submit" class="btn btn--primary" style="margin-top:1.4rem">Invia messaggio
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/bg-field.js"></script>
+  <script src="assets/js/forms.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

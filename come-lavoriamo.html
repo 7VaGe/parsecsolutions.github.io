@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Come Lavoriamo — Il metodo Parsec | Parsec Solutions</title>
+  <meta name="description" content="Il metodo Parsec: analizziamo, comprendiamo e ottimizziamo i tuoi processi aziendali prima di implementare la tecnologia SAP. Scopri come integriamo i flussi e riduciamo i costi dell'inefficienza.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/come-lavoriamo.css">
+  <link rel="stylesheet" href="assets/css/migration-timeline.css">
+</head>
+<body data-page="come-lavoriamo">
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb reveal"><a href="index.html">Home</a> / Come Lavoriamo</div>
+      <h1 class="reveal" data-delay="1">Come <span class="text-grad">Lavoriamo</span></h1>
+      <p class="lead reveal" data-delay="2">Prima analizziamo e comprendiamo i tuoi processi, poi ottimizziamo i flussi. Guarda cosa succede quando i dati non sono integrati — e come lo risolviamo.</p>
+    </div>
+  </section>
+
+  <!-- ============ ESPERIENZA NARRATIVA — state machine su data-state ============ -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cl" data-state="idle" aria-label="Esperienza interattiva: il metodo Parsec">
+        <div class="cl-stage">
+
+          <!-- FINESTRA PRINCIPALE — mappa dell'ecosistema aziendale -->
+          <div class="cl-window">
+            <div class="cl-window__head">
+              <span class="cl-window__title">Ecosistema aziendale</span>
+              <span class="cl-badge"><span class="dot"></span> Flusso dati</span>
+            </div>
+
+            <div class="cl-flow" role="group" aria-label="Scegli un reparto per simulare una criticità nel flusso">
+              <div class="cl-node" data-node="acquisti" role="button" tabindex="0" aria-pressed="false" aria-label="Simula una criticità nel reparto Acquisti">
+                <span class="cl-node__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span>
+                <span class="cl-node__label">Acquisti</span>
+              </div>
+              <div class="cl-link" data-i="0"><span class="cl-link__pulse"></span></div>
+
+              <div class="cl-node" data-node="magazzino" role="button" tabindex="0" aria-pressed="false" aria-label="Simula una criticità nel reparto Magazzino">
+                <span class="cl-node__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3M3 8h18M3 8v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8M8 12h8"/></svg></span>
+                <span class="cl-node__label">Magazzino</span>
+              </div>
+              <div class="cl-link" data-i="1"><span class="cl-link__pulse"></span></div>
+
+              <div class="cl-node" data-node="produzione" role="button" tabindex="0" aria-pressed="false" aria-label="Simula una criticità nel reparto Produzione">
+                <span class="cl-node__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM12 8v4l3 2"/></svg></span>
+                <span class="cl-node__label">Produzione</span>
+              </div>
+              <div class="cl-link" data-i="2"><span class="cl-link__pulse"></span></div>
+
+              <div class="cl-node" data-node="vendite" role="button" tabindex="0" aria-pressed="false" aria-label="Simula una criticità nel reparto Vendite">
+                <span class="cl-node__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+                <span class="cl-node__label">Vendite</span>
+              </div>
+              <div class="cl-link" data-i="3"><span class="cl-link__pulse"></span></div>
+
+              <div class="cl-node" data-node="amministrazione" role="button" tabindex="0" aria-pressed="false" aria-label="Simula una criticità nel reparto Amministrazione">
+                <span class="cl-node__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></span>
+                <span class="cl-node__label">Amministrazione</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANNELLO CONTESTUALE — cambia contenuto per stato -->
+          <div class="cl-panel">
+
+            <!-- Scena 0 — idle -->
+            <div class="cl-block is-active" data-block="idle">
+              <span class="cl-kicker">Osserva &amp; interagisci</span>
+              <h3>Il flusso dei tuoi processi</h3>
+              <p>Ogni reparto scambia informazioni con gli altri, senza sosta. Quando il flusso è integrato, l'azienda respira.</p>
+              <p style="color:var(--accent-2)"><strong>Clicca un reparto</strong> per simulare cosa succede quando i dati non sono integrati.</p>
+            </div>
+
+            <!-- Scena 1 — blocked -->
+            <div class="cl-block" data-block="blocked">
+              <span class="cl-kicker">Criticità rilevata</span>
+              <h3>Il flusso si interrompe</h3>
+              <div class="cl-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+                <span data-ctx aria-live="polite">Giacenze non integrate in tempo reale. Attesa stimata: 12 ore.</span>
+              </div>
+              <p>Il costo non è solo l'ordine fermo: è l'effetto domino su tutti i reparti a valle.</p>
+              <button class="btn btn--primary cl-cta" data-action="to-analyzing">Risolvi il blocco con Parsec
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+
+            <!-- Scena 2 — analyzing (metodo + simulatore ROI) -->
+            <div class="cl-block" data-block="analyzing">
+              <span class="cl-kicker">Metodo Parsec</span>
+              <h3>Prima il processo, poi la tecnologia</h3>
+              <div class="cl-steps" aria-label="Fasi del metodo Parsec">
+                <div class="cl-step"><span class="cl-step__n">1</span> Analisi dei processi</div>
+                <div class="cl-step"><span class="cl-step__n">2</span> Workshop interprocedurale</div>
+                <div class="cl-step"><span class="cl-step__n">3</span> Mappatura delle criticità</div>
+              </div>
+
+              <div class="cl-q">
+                <span class="cl-q__label" id="q-orders">Quanti ordini attraversano la tua azienda al giorno?</span>
+                <div class="cl-orders">
+                  <div class="cl-seg" data-group="orders" role="group" aria-labelledby="q-orders">
+                    <button type="button" data-value="50" aria-pressed="false">50</button>
+                    <button type="button" data-value="100" aria-pressed="true">100</button>
+                  </div>
+                  <span class="cl-orders__or">oppure</span>
+                  <div class="cl-hourly">
+                    <input type="number" data-orders id="q-orders-input" value="100" min="1" max="500" step="1" inputmode="numeric" aria-label="Numero ordini al giorno, massimo 500">
+                    <span class="cl-hourly__suffix">/ giorno</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cl-q">
+                <label class="cl-q__label" id="q-hourly" for="q-hourly-input">Costo/paga oraria media del personale coinvolto?</label>
+                <div class="cl-hourly">
+                  <span class="cl-hourly__cur">€</span>
+                  <input type="number" data-hourly id="q-hourly-input" value="25" min="5" max="100" step="1" inputmode="numeric" aria-labelledby="q-hourly">
+                  <span class="cl-hourly__suffix">/ ora</span>
+                </div>
+              </div>
+
+              <div class="cl-roi" aria-live="polite" aria-atomic="true">
+                <div class="cl-roi__cell"><div class="cl-roi__num" data-roi="hours">0</div><div class="cl-roi__lbl">Ore perse / anno</div></div>
+                <div class="cl-roi__cell"><div class="cl-roi__num is-cost" data-roi="cost">€ 0</div><div class="cl-roi__lbl">Costo inefficienza</div></div>
+                <div class="cl-roi__cell"><div class="cl-roi__num" data-roi="roi">0</div><div class="cl-roi__lbl">Rientro stimato</div></div>
+              </div>
+
+              <p class="cl-disclaimer">Nota: le stime si basano su medie di mercato. Fonti: <br>- <a href="https://www.gartner.com/en/data-analytics/topics/data-quality" target="_blank" rel="noopener">Gartner</a> — la scarsa qualità/integrazione dei dati costa in media 12,9&nbsp;mln&nbsp;$/anno per azienda;<br>- <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" target="_blank" rel="noopener">McKinsey Global Institute</a> — i dipendenti dedicano in media ~1,8&nbsp;ore/giorno alla ricerca di informazioni. Un calcolo puntuale richiede un'analisi dei processi dedicata.</p>
+
+              <button class="btn btn--primary cl-cta" data-action="to-solved">Ottimizza il processo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+
+            <!-- Scena 3 — solved (dashboard + CTA finale) -->
+            <div class="cl-block" data-block="solved">
+              <span class="cl-kicker">Ecosistema integrato</span>
+              <h3>L'azienda torna a respirare</h3>
+              <div class="cl-kpis">
+                <div class="cl-kpi"><div class="cl-kpi__num" data-kpi="evasione">0%</div><div class="cl-kpi__lbl">Tempo evasione ordine</div></div>
+                <div class="cl-kpi"><div class="cl-kpi__num">0</div><div class="cl-kpi__lbl">Errori di inventario</div></div>
+                <div class="cl-kpi"><div class="cl-kpi__num" data-kpi="traccia">0%</div><div class="cl-kpi__lbl">Tracciabilità</div></div>
+              </div>
+              <p>Dati coerenti in ogni reparto, in tempo reale. Ora possiamo parlare della soluzione più adatta a te.</p>
+              <button class="btn btn--primary cl-cta" data-action="reveal-form">Prenota una consulenza di 15 minuti
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+
+              <form class="cl-form" hidden novalidate>
+                <div class="cl-inline">
+                  <input type="email" name="email" placeholder="Email aziendale" required aria-label="Email aziendale">
+                  <input type="tel" name="phone" placeholder="Telefono" required aria-label="Telefono" pattern="[0-9+\s().-]{6,}">
+                </div>
+                <button type="submit" class="btn btn--primary">Fissa i 15 minuti</button>
+                <div class="cl-status" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAP MIGRATION TIMELINE ============ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Migrazione senza traumi</span>
+        <h2>La tua migrazione SAP, fase per fase</h2>
+        <p>Nessun salto nel buio: una roadmap chiara dove la tua operatività resta sempre attiva. Clicca le fasi o trascina lo slider.</p>
+      </div>
+
+      <div class="mt" data-phase="1" aria-label="Timeline interattiva della migrazione SAP">
+
+        <!-- Controllo temporale -->
+        <div class="mt-timeline">
+          <div class="mt-track" role="tablist" aria-label="Fasi della migrazione">
+            <button class="mt-step" type="button" data-phase="1" aria-current="step">
+              <span class="mt-step__dot">1</span>
+              <span class="mt-step__label">Mese 1<small>Mappatura &amp; Blueprint</small></span>
+            </button>
+            <button class="mt-step" type="button" data-phase="2" aria-current="false">
+              <span class="mt-step__dot">2</span>
+              <span class="mt-step__label">Mese 2<small>Configurazione &amp; Dati</small></span>
+            </button>
+            <button class="mt-step" type="button" data-phase="3" aria-current="false">
+              <span class="mt-step__dot">3</span>
+              <span class="mt-step__label">Mese 3<small>Training &amp; Simulation</small></span>
+            </button>
+            <button class="mt-step" type="button" data-phase="4" aria-current="false">
+              <span class="mt-step__dot">4</span>
+              <span class="mt-step__label">Mese 4+<small>Go-Live &amp; Supporto</small></span>
+            </button>
+            <span class="mt-fill" aria-hidden="true"></span>
+          </div>
+          <input class="mt-range" type="range" min="1" max="4" step="1" value="1" aria-label="Seleziona la fase della migrazione">
+        </div>
+
+        <!-- Finestre di dettaglio -->
+        <div class="mt-panels">
+          <div class="mt-panel mt-panel--parsec">
+            <span class="mt-panel__kicker">Cosa fa Parsec</span>
+            <p class="mt-panel__body" data-parsec aria-live="polite"></p>
+          </div>
+          <div class="mt-panel mt-panel--client">
+            <span class="mt-panel__kicker">La tua azienda</span>
+            <div class="mt-status" data-status data-tone="green">
+              <span class="mt-status__badge"><span class="dot"></span><span data-status-label></span></span>
+              <p class="mt-panel__body" data-client aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disclaimer di continuità (sempre visibile) -->
+        <p class="mt-note">Nota: la pianificazione temporale è indicativa e varia in base alla complessità dei moduli SAP richiesti. Parsec garantisce contrattualmente la continuità operativa durante le fasi di transizione.</p>
+
+        <!-- Box di conversione (compare alla Fase 4) -->
+        <div class="mt-cta" role="region" aria-label="Richiesta roadmap">
+          <h3>Hai un progetto di migrazione o aggiornamento SAP in mente?</h3>
+          <p>Parliamo di come renderlo fluido e sicuro, senza fermare la tua operatività.</p>
+          <a href="contatti.html" class="btn btn--primary">Richiedi una Roadmap Preliminare
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/bg-field.js"></script>
+  <script src="assets/js/come-lavoriamo.js"></script>
+  <script src="assets/js/migration-timeline.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
