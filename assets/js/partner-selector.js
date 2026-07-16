@@ -102,6 +102,11 @@
     inner.className = "ps-card__inner";
     inner.appendChild(makeLogo(p));
 
+    var nm = document.createElement("span");
+    nm.className = "ps-card__name";
+    nm.textContent = p.name;
+    inner.appendChild(nm);
+
     if (p.pending) {
       var rib = document.createElement("span");
       rib.className = "ps-ribbon i18n-t";
