@@ -180,7 +180,7 @@ p  { color: var(--text-muted); }
 .nav-cta { display: flex; align-items: center; gap: 1rem; }
 
 /* Hamburger mobile */
-.nav-toggle { display: none; width: 42px; height: 42px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; position: relative; }
+.nav-toggle { display: none; width: 42px; height: 42px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; position: relative; margin-right: 2rem; }
 .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
   content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 2px; background: var(--text);
   transform: translate(-50%, -50%); transition: .3s var(--ease);
