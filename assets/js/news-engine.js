@@ -21,7 +21,7 @@
   var FALLBACK = [
     { title: "Migrazione a SAP S/4HANA: la roadmap in 4 fasi senza fermare l'operatività",
       excerpt: "Come Parsec pianifica la transizione garantendo continuità: mappatura, sandbox, training e go-live assistito.",
-      date: "2026-06-18", image: "../img/Sap-Hana.jpg", link: "#" },
+      date: "2026-06-18", image: "../img/SAP-Hana.jpg", link: "#" },
     { title: "Fatturazione elettronica B2B: cosa cambia e come prepararsi",
       excerpt: "Le novità normative e l'integrazione diretta in SAP con DDM Solutions per un ciclo passivo senza attriti.",
       date: "2026-05-30", image: "../img/DocumentiEFatturazione.jpg", link: "#" },
