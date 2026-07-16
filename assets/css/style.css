@@ -172,6 +172,8 @@ p  { color: var(--text-muted); }
   opacity: 0; visibility: hidden; transition: .25s var(--ease);
 }
 .has-drop:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+/* Ponte invisibile che copre il vuoto tra voce e dropdown: evita che l'hover si perda passando il mouse */
+.dropdown::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 16px; }
 .dropdown a { display: block; padding: .6rem .8rem; border-radius: 8px; font-size: .9rem; color: var(--text-muted); }
 .dropdown a:hover { background: var(--surface); color: var(--text); }
 
@@ -355,6 +357,12 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   .nav-links > li > a { padding: .9rem .4rem; font-size: 1.05rem; border-bottom: 1px solid var(--border); border-radius: 0; }
   .nav-links > li > a.active::after { display: none; }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: transparent; padding: 0 0 .5rem 1rem; }
+  .dropdown::before { display: none; }
+  .has-drop:hover .dropdown, .has-drop .dropdown { transform: none; }
+  .dropdown.mega { display: block; width: auto; max-width: 100%; padding: 0 0 0 1rem; }
+  .mega-col { border-left: 0; padding: .3rem 0 .5rem; }
+  .mega-col__sub { margin-bottom: .35rem; }
+  .lang-toggle { margin-right: .3rem; }
   .nav-cta .btn { display: none; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
@@ -740,7 +748,7 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
 .scale-scene--in .scale-card { transform: scale(0.7); border-radius: 40px; }
 
 /* Toggle lingua IT/EN con bandierine */
-.lang-toggle { display: inline-flex; align-items: center; gap: .55rem; margin-right: .4rem; padding: .3rem .7rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-family: var(--font-head); font-size: .74rem; letter-spacing: .03em; cursor: pointer; transition: background .2s, border-color .2s; }
+.lang-toggle { display: inline-flex; align-items: center; gap: .55rem; margin-right: 1.5rem; padding: .3rem .7rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-family: var(--font-head); font-size: .74rem; letter-spacing: .03em; cursor: pointer; transition: background .2s, border-color .2s; }
 .lang-toggle:hover { background: var(--surface-2); border-color: var(--accent-3); }
 .lang-toggle .lt-it, .lang-toggle .lt-en { display: inline-flex; align-items: center; gap: .35rem; color: var(--text-dim); opacity: .55; transition: color .2s, opacity .2s; }
 .lang-toggle .is-on { color: var(--accent-3); opacity: 1; font-weight: 700; }

@@ -9,17 +9,13 @@
 (function () {
   "use strict";
 
-  // Logo (SVG inline: nessuna dipendenza da file immagine)
-// Riga 13 corretta
-// Il filtro azzera la luminosità e inverte il nero in bianco
-//var LOGO = '<img src="assets/img/logo.png" alt="Parsec Solutions" class="logo-img" style="height:40px; width:auto; display:inline-block; vertical-align:middle; margin-right:10px; filter: brightness(0) invert(1);" />';
-// Aggiunge un background leggero bianco sfocato e un raggio per ammorbidire l'impatto
-var LOGO = '<img src="assets/img/logo.png" alt="Parsec Solutions" class="logo-img " style="height:40px; width:auto; display:inline-block; vertical-align:middle; background: rgba(255,255,255,0.85); padding: 4px 8px; border-radius: 6px; box-shadow: 0 0 10px rgba(255,255,255,0.2);" />';
+  // Logo del brand
+  var LOGO = '<img src="assets/img/logo.png" alt="Parsec Solutions" class="logo-img " style="height:40px; width:auto; display:inline-block; vertical-align:middle; background: rgba(255,255,255,0.85); padding: 4px 8px; border-radius: 6px; box-shadow: 0 0 10px rgba(255,255,255,0.2);" />';
   // Voci di navigazione. key = data-page della pagina attiva.
   var NAV = [
     { key: "home",       label: "Home",          href: "index.html" },
     { key: "chi-siamo",  label: "Chi Siamo",     href: "chi-siamo.html" },
-    { key: "solutions",  label: "Solutions", href: "solutions.html", mega: [
+    { key: "solutions",  label: "Soluzioni", href: "solutions.html", mega: [
         { title: "SAP Applications", subtitle: "Core business", items: [
             { label: "ERP SAP S/4HANA",             href: "sap-s4hana.html" },
             { label: "SAP Digital Platform",        href: "sap-digital-platform.html" },
@@ -36,10 +32,10 @@ var LOGO = '<img src="assets/img/logo.png" alt="Parsec Solutions" class="logo-im
             { label: "Archiving",             href: "gs-archiving.html" },
             { label: "Virtualizzazione",      href: "gs-virtualizzazione.html" }
           ]},
-        { title: "DDM", subtitle: "Documenti & Fatturazione", items: [
-            { label: "Gestione Documentale",     href: "ddm.html" },
-            { label: "Fatturazione Elettronica", href: "ddm.html" },
-            { label: "Finance Automation",       href: "ddm.html" }
+        { title: "SAP BI", subtitle: "Business Intelligence", items: [
+            { label: "Reporting & Analytics",  href: "sap-bi.html" },
+            { label: "Business Warehouse",     href: "sap-bi.html" },
+            { label: "SAP Analytics Cloud",    href: "sap-bi.html" }
           ]}
       ]},
     { key: "lavora",     label: "Lavora con noi", href: "lavora-con-noi.html" },
