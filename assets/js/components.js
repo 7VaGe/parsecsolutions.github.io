@@ -109,7 +109,7 @@
               '<h4>Solutions</h4>' +
               '<a href="solutions.html#applications">SAP Applications</a>' +
               '<a href="sap-basis.html">SAP Basis</a>' +
-              '<a href="ddm.html">DDM — Documenti &amp; Fatturazione</a>' +
+              '<a href="sap-bi.html">SAP BI</a>' +
             '</div>' +
             '<div>' +
               '<h4>Azienda</h4>' +
