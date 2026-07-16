@@ -15,7 +15,7 @@
       topic: "Consulenza IT & Sviluppo",
       url: "https://www.sficonsulting.it",
       pending: false,
-      logo: "assets/img/partners/LogoSFIConsulting.jpg",
+      logo: "assets/img/SFI_Consulting_Vector_Logo-Ju9uUD6u.svg",
       desc: "Consulenza informatica e sviluppo software su misura. Un partner con cui condividiamo metodo, cura del dettaglio e attenzione al risultato, dal disegno del progetto fino alla messa in produzione."
     },
     {
@@ -101,11 +101,6 @@
     var inner = document.createElement("div");
     inner.className = "ps-card__inner";
     inner.appendChild(makeLogo(p));
-
-    var nm = document.createElement("span");
-    nm.className = "ps-card__name";
-    nm.textContent = p.name;
-    inner.appendChild(nm);
 
     if (p.pending) {
       var rib = document.createElement("span");
