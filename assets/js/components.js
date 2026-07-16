@@ -38,6 +38,7 @@
             { label: "SAP Analytics Cloud",    href: "sap-bi.html" }
           ]}
       ]},
+    { key: "partner",    label: "Partner",        href: "partner.html" },
     { key: "lavora",     label: "Lavora con noi", href: "lavora-con-noi.html" },
     { key: "news",       label: "News",           href: "news.html" }
   ];
@@ -105,7 +106,7 @@
               '<p>Consulenza SAP IT applicativa e tecnico-sistemistica. Collaboriamo con partner e clienti SAP per fornire soluzioni eccellenti.</p>' +
             '</div>' +
             '<div>' +
-              '<h4>Soluzioni</h4>' +
+              '<h4>Solutions</h4>' +
               '<a href="solutions.html#applications">SAP Applications</a>' +
               '<a href="sap-basis.html">SAP Basis</a>' +
               '<a href="ddm.html">DDM — Documenti &amp; Fatturazione</a>' +
