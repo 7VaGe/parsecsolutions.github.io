@@ -8,7 +8,7 @@ window.I18N_DICT = {
 "Consulenza IT & Sviluppo": "IT Consulting & Development",
 "Automazione & Transportation": "Automation & Transportation",
 "Partner attivo": "Active partner",
-"Sito in arrivo": "Website coming soon",
+"Sito in arrivo": "Coming soon",
 "Visita il sito": "Visit the website",
 "Consulenza informatica e sviluppo software su misura. Un partner con cui condividiamo metodo, cura del dettaglio e attenzione al risultato, dal disegno del progetto fino alla messa in produzione.": "Custom IT consulting and software development. A partner with whom we share method, attention to detail and focus on results, from project design through to go-live.",
 "Soluzioni di automazione e sistemi per il transportation e la logistica. Tecnologie che rendono i processi fisici più efficienti, tracciabili e integrati con i sistemi gestionali.": "Automation solutions and systems for transportation and logistics. Technologies that make physical processes more efficient, traceable and integrated with management systems.",
