@@ -105,7 +105,7 @@
               '<p>Consulenza SAP IT applicativa e tecnico-sistemistica. Collaboriamo con partner e clienti SAP per fornire soluzioni eccellenti.</p>' +
             '</div>' +
             '<div>' +
-              '<h4>Solutions</h4>' +
+              '<h4>Soluzioni</h4>' +
               '<a href="solutions.html#applications">SAP Applications</a>' +
               '<a href="sap-basis.html">SAP Basis</a>' +
               '<a href="ddm.html">DDM — Documenti &amp; Fatturazione</a>' +
