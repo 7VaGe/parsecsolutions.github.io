@@ -19,6 +19,14 @@
       desc: "Consulenza informatica e sviluppo software su misura. Un partner con cui condividiamo metodo, cura del dettaglio e attenzione al risultato, dal disegno del progetto fino alla messa in produzione."
     },
     {
+      name: "PMGTEC",
+      topic: "SAP IS-U & Salesforce \u00b7 Utilities",
+      url: "https://www.pmgtec.it",
+      pending: false,
+      logo: "assets/img/partners/pmglogo.png",
+      desc: "Consulenza IT specializzata in soluzioni SAP e Salesforce per il mondo delle utilities. Dal 2013 affiancano le aziende dei settori idrico, elettrico, gas e ambiente su SAP IS-U, CRM e adeguamenti normativi ARERA, dalla strategia fino all'implementazione."
+    },
+    {
       name: "TPP",
       topic: "Automazione & Transportation",
       url: null,
