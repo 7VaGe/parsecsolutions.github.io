@@ -157,12 +157,6 @@
     });
     var feat = bento.querySelector(".n-card--featured");
     if (feat && !reduce) triggerFrenata(feat);
-    if (isFallback) {
-      var note = document.createElement("p");
-      /*note.className = "news-fallback-note";
-      note.textContent = "Anteprima: i contenuti reali verranno caricati automaticamente dalle news di WordPress una volta pubblicati.";
-      bento.appendChild(note);*/
-    }
   }
 
   /* ---------- Fetch con timeout ---------- */
