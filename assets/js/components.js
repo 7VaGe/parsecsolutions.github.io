@@ -21,7 +21,8 @@
             { label: "SAP Digital Platform",        href: "sap-digital-platform.html" },
             { label: "SAP Security",                href: "sap-security.html" },
             { label: "SAP on Cloud",                href: "sap-cloud.html" },
-            { label: "SAP Supply Chain Management", href: "sap-scm.html" }
+            { label: "SAP Supply Chain Management", href: "sap-scm.html" },
+            { label: "DDM Solutions",               href: "ddm.html" }
           ]},
         { title: "SAP Basis", subtitle: "Servizi tecnico-sistemistici", items: [
             { label: "Consulenza",            href: "gs-consulenza.html" },
@@ -33,9 +34,10 @@
             { label: "Virtualizzazione",      href: "gs-virtualizzazione.html" }
           ]},
         { title: "SAP BI", subtitle: "Business Intelligence", items: [
-            { label: "Reporting & Analytics",  href: "sap-bi.html" },
-            { label: "Business Warehouse",     href: "sap-bi.html" },
-            { label: "SAP Analytics Cloud",    href: "sap-bi.html" }
+            { label: "Reporting & Analytics" },
+            { label: "Business Warehouse" },
+            { label: "SAP Analytics Cloud" },
+            { label: "Scopri", href: "sap-bi.html", cta: true }
           ]}
       ]},
     { key: "partner",    label: "Partner",        href: "partner.html" },
@@ -54,7 +56,13 @@
       if (item.mega) {
         var cols = item.mega.map(function (col) {
           var lis = col.items.map(function (c) {
-            return '<a href="' + c.href + '">' + c.label + '</a>';
+            // voce informativa, senza reindirizzamento
+            if (!c.href) {
+              return '<span class="mega-item--static">' + c.label + '</span>';
+            }
+            // voce di richiamo "Scopri" evidenziata in verde
+            var cta = c.cta ? ' class="mega-item--cta"' : '';
+            return '<a href="' + c.href + '"' + cta + '>' + c.label + '</a>';
           }).join("");
           return '<div class="mega-col">' +
                    '<span class="mega-col__title">' + col.title + '</span>' +
