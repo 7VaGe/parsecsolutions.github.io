@@ -360,14 +360,7 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: transparent; padding: 0 0 .5rem 1rem; }
   .dropdown::before { display: none; }
   .has-drop:hover .dropdown, .has-drop .dropdown { transform: none; }
-  .dropdown.mega { display: block; width: auto; max-width: 100%; padding: 0 0 0 1rem; }
-  .mega-col { border-left: 0; padding: 0; }
-  .mega-col__title { padding: .8rem .2rem; cursor: pointer; border-top: 1px solid var(--border); }
-  .mega-col__chev { display: block; transition: transform .25s var(--ease); }
-  .mega-col.open .mega-col__chev { transform: rotate(180deg); }
-  .mega-col__list { overflow: hidden; max-height: 0; transition: max-height .32s var(--ease); padding-left: .5rem; }
-  .mega-col.open .mega-col__list { max-height: 520px; }
-  .mega-col__sub { margin-bottom: .35rem; }
+  /* Regole mobile del mega-menu spostate dopo le regole desktop (vedi sezione 25) per la corretta cascata */
   .lang-toggle { margin-right: .3rem; }
   .nav-toggle { margin-right: clamp(.5rem, 2.5vw, 2rem); }
   .nav-cta .btn { display: none; }
@@ -688,6 +681,19 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   /* Tablet: mega compatto a 3 colonne strette e centrato, non una singola colonna altissima */
   .dropdown.mega { grid-template-columns: repeat(3, minmax(140px, 1fr)); width: min(680px, calc(100vw - 2rem)); }
   .mega-col { padding: .8rem .7rem; }
+}
+
+@media (max-width: 720px) {
+  /* Menu hamburger: le 3 sottocategorie sono IMPILATE (una sotto l'altra) come le altre voci,
+     e ognuna è un accordion che apre le proprie voci al tap. */
+  .dropdown.mega { display: block; grid-template-columns: none; width: auto; max-width: 100%; padding: 0 0 0 1rem; }
+  .mega-col, .mega-col:first-child { padding: 0; border-left: 0; }
+  .mega-col__title { padding: .85rem .2rem; cursor: pointer; border-top: 1px solid var(--border); }
+  .mega-col__chev { display: block; transition: transform .25s var(--ease); }
+  .mega-col.open .mega-col__chev { transform: rotate(180deg); }
+  .mega-col__list { overflow: hidden; max-height: 0; transition: max-height .32s var(--ease); padding-left: .5rem; }
+  .mega-col.open .mega-col__list { max-height: 520px; }
+  .mega-col__sub { margin-bottom: .35rem; }
 }
 
 /* =============================================================
