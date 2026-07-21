@@ -361,7 +361,12 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   .dropdown::before { display: none; }
   .has-drop:hover .dropdown, .has-drop .dropdown { transform: none; }
   .dropdown.mega { display: block; width: auto; max-width: 100%; padding: 0 0 0 1rem; }
-  .mega-col { border-left: 0; padding: .3rem 0 .5rem; }
+  .mega-col { border-left: 0; padding: 0; }
+  .mega-col__title { padding: .8rem .2rem; cursor: pointer; border-top: 1px solid var(--border); }
+  .mega-col__chev { display: block; transition: transform .25s var(--ease); }
+  .mega-col.open .mega-col__chev { transform: rotate(180deg); }
+  .mega-col__list { overflow: hidden; max-height: 0; transition: max-height .32s var(--ease); padding-left: .5rem; }
+  .mega-col.open .mega-col__list { max-height: 520px; }
   .mega-col__sub { margin-bottom: .35rem; }
   .lang-toggle { margin-right: .3rem; }
   .nav-toggle { margin-right: clamp(.5rem, 2.5vw, 2rem); }
@@ -668,7 +673,9 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
 .has-drop.has-mega { position: static; }
 .mega-col { padding: 1.1rem 1.2rem; border-left: 1px solid var(--border); }
 .mega-col:first-child { border-left: 0; }
-.mega-col__title { display: block; font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--text); }
+.mega-col__title { display: flex; align-items: center; justify-content: space-between; gap: .5rem; width: 100%; margin: 0; padding: 0; background: none; border: 0; text-align: left; cursor: default; font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--text); }
+.mega-col__chev { width: 18px; height: 18px; flex: none; display: none; }
+.mega-col__list { display: block; }
 .mega-col__sub { display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-3); margin: .15rem 0 .8rem; }
 .mega-col a { display: block; padding: .42rem .6rem; font-size: .88rem; color: var(--text-muted); border-left: 2px solid transparent; transition: color .18s, background .18s, border-color .18s; }
 .mega-col a:hover { color: var(--text); background: var(--surface); border-left-color: var(--accent-3); }

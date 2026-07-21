@@ -65,9 +65,13 @@
             return '<a href="' + c.href + '"' + cta + '>' + c.label + '</a>';
           }).join("");
           return '<div class="mega-col">' +
-                   '<span class="mega-col__title">' + col.title + '</span>' +
-                   '<span class="mega-col__sub">' + col.subtitle + '</span>' +
-                   lis +
+                   '<button class="mega-col__title" type="button" aria-expanded="false">' + col.title +
+                     '<svg class="mega-col__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>' +
+                   '</button>' +
+                   '<div class="mega-col__list">' +
+                     '<span class="mega-col__sub">' + col.subtitle + '</span>' +
+                     lis +
+                   '</div>' +
                  '</div>';
         }).join("");
         return '<li class="has-drop has-mega">' +
@@ -166,6 +170,28 @@
         a.addEventListener("click", function () { document.body.classList.remove("menu-open"); });
       });
     }
+
+    // Accordion delle sottocategorie del mega-menu (attivo su mobile).
+    // Tap sull'intestazione: apre le voci e chiude le altre della stessa sezione.
+    document.querySelectorAll(".mega-col__title").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var col = btn.closest(".mega-col");
+        if (!col) return;
+        var willOpen = !col.classList.contains("open");
+        var mega = col.closest(".mega");
+        if (mega) {
+          mega.querySelectorAll(".mega-col.open").forEach(function (c) {
+            if (c !== col) {
+              c.classList.remove("open");
+              var b = c.querySelector(".mega-col__title");
+              if (b) b.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+        col.classList.toggle("open", willOpen);
+        btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      });
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
