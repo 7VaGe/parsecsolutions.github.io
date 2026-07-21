@@ -89,7 +89,7 @@ p  { color: var(--text-muted); }
 }
 
 /* ---------- 4. Layout / utility ---------- */
-.container { width: min(100% - 3rem, var(--container)); margin-inline: auto; }
+.container { width: min(100% - clamp(1.5rem, 5vw, 3rem), var(--container)); margin-inline: auto; }
 
 .section { padding: clamp(4rem, 9vw, 3rem) 0; position: relative; }
 .section--alt { background: linear-gradient(180deg, transparent, var(--bg-alt) 20% 80%, transparent); }
@@ -145,6 +145,7 @@ p  { color: var(--text-muted); }
 .nav { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
 .brand { display: flex; align-items: center; gap: .7rem; font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; letter-spacing: -.01em; }
+.site-header .brand { margin-left: clamp(.25rem, 2.2vw, 2rem); }
 .brand .logo-mark { width: 34px; height: 34px; flex: none; }
 .brand span b { color: var(--accent-2); font-weight: 700; }
 
@@ -363,6 +364,7 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   .mega-col { border-left: 0; padding: .3rem 0 .5rem; }
   .mega-col__sub { margin-bottom: .35rem; }
   .lang-toggle { margin-right: .3rem; }
+  .nav-toggle { margin-right: clamp(.5rem, 2.5vw, 2rem); }
   .nav-cta .btn { display: none; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
@@ -661,6 +663,9 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
   width: min(760px, calc(100vw - 3rem));
   max-width: calc(100vw - 3rem);
 }
+/* Il mega-menu si centra sul viewport invece che sotto la voce "Soluzioni":
+   su schermi stretti (es. 748px) non sborda più dai lati e resta centrato. */
+.has-drop.has-mega { position: static; }
 .mega-col { padding: 1.1rem 1.2rem; border-left: 1px solid var(--border); }
 .mega-col:first-child { border-left: 0; }
 .mega-col__title { display: block; font-family: var(--font-head); font-weight: 700; font-size: .95rem; color: var(--text); }
@@ -672,9 +677,10 @@ body.menu-open .nav-toggle span::after  { transform: translate(-50%,-50%) rotate
 /* Voce di richiamo "Scopri" evidenziata in verde */
 .mega-col a.mega-item--cta { color: var(--accent-3); font-weight: 600; }
 .mega-col a.mega-item--cta:hover { color: var(--accent-3); background: var(--surface); border-left-color: var(--accent-3); }
-@media (max-width: 820px) {
-  .dropdown.mega { grid-template-columns: 1fr; width: auto; }
-  .mega-col { border-left: 0; padding: .5rem 0; }
+@media (max-width: 820px) and (min-width: 721px) {
+  /* Tablet: mega compatto a 3 colonne strette e centrato, non una singola colonna altissima */
+  .dropdown.mega { grid-template-columns: repeat(3, minmax(140px, 1fr)); width: min(680px, calc(100vw - 2rem)); }
+  .mega-col { padding: .8rem .7rem; }
 }
 
 /* =============================================================

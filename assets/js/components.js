@@ -90,7 +90,7 @@
     return '' +
       '<header class="site-header" id="header">' +
         '<nav class="nav container" aria-label="Navigazione principale">' +
-          '<a href="index.html" class="brand" style="margin-left: 2rem;">' + LOGO + '</a>'+
+          '<a href="index.html" class="brand">' + LOGO + '</a>'+
           '<ul class="nav-links" id="navLinks">' + links + '</ul>' +
           '<div class="nav-cta">' +
             '<button class="lang-toggle" id="langToggle" type="button" aria-label="IT / EN">' +
