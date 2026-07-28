@@ -42,7 +42,11 @@
         </div>
       </div>
 
-      <form class="card reveal" data-delay="1" data-form>
+      <form class="card reveal" data-delay="1" data-form action="invia.php" method="post">
+        <!-- honeypot anti-spam: NON rimuovere, resta invisibile agli utenti -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input type="hidden" name="form" value="contatti">
         <div class="form-grid">
           <div class="field"><label for="c-nome">Nome</label><input id="c-nome" name="nome" type="text" placeholder="Nome" required></div>
           <div class="field"><label for="c-azienda">Azienda</label><input id="c-azienda" name="azienda" type="text" placeholder="Azienda"></div>
