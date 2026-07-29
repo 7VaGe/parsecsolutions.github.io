@@ -1,0 +1,21 @@
+# Protezione dei file sensibili quando config.php sta nella web root
+# (fallback per hosting dove la cartella superiore è di sola lettura, es. Aruba).
+# Su GitHub Pages viene ignorato; su Aruba/Apache è attivo.
+<Files "config.php">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>
+<Files ".graph_token_cache.json">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>

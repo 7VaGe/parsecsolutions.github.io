@@ -1,0 +1,7 @@
+# Segreti e cache: non versionare
+config.php
+.graph_token_cache.json
+
+# CV caricati: escludi i file, ma mantieni la cartella e la sua protezione
+cv-uploads/*
+!cv-uploads/.htaccess

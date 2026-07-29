@@ -253,4 +253,14 @@
       if (renderer.forceContextLoss) renderer.forceContextLoss();
     } catch (e) {}
   }, { once: true });
+
+  // bfcache: al ritorno "indietro" il canvas WebGL è morto (riquadro bianco).
+  // Nascondo subito il canvas morto così non si vede il riquadro rotto, poi ricarico
+  // pulito. (La ricostruzione senza reload qui è più delicata per via del loop.)
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) {
+      try { canvas.style.display = "none"; } catch (x) {}
+      window.location.reload();
+    }
+  });
 })();

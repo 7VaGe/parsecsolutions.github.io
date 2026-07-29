@@ -1,17 +1,21 @@
 // piramid.js — piramide 3D interattiva della hero Solutions.
 // 3 livelli tronco-piramidali: base = Gestione Sistemi, centro = SAP, cima = DDM.
-// Fluttuano piano; hover su un livello -> lo fermo e mostro la card affiancata.
-// Card/label sono elementi DOM esterni, li accendo con le classi .hidden/.block.
+// Fluttuano piano; CLICK su un livello -> lo fermo e fisso la card affiancata
+// (resta finché non clicco un altro livello o a vuoto). Hover = solo cursore +
+// evidenziazione. Card sono elementi DOM esterni, accesi con le classi .hidden/.block.
 // Richiede three.min.js (r128). Target: <div id="pyramid-3d-container">.
 (function () {
   "use strict";
 
   var mount = document.getElementById("pyramid-3d-container");
   if (!mount) return;
-  if (mount.querySelector("canvas")) return;   // già avviato, non duplico il canvas
   if (typeof THREE === "undefined") return;
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Costruisce (o ricostruisce) l'intera scena. Richiamabile al ripristino bfcache.
+  function build() {
+  if (mount.querySelector("canvas")) return;   // canvas già presente, non duplico
 
   var W = mount.clientWidth || 380;
   var H = mount.clientHeight || 450;
@@ -107,8 +111,22 @@
   var raycaster = new THREE.Raycaster();
   var mouse = new THREE.Vector2();
 
-  // rimette tutto a riposo: card nascoste, label spente, nessun livello attivo
-  function resetDOMStates() {
+  // livello selezionato col CLICK (null = nessuno -> mostra la card default)
+  var selected = null;
+
+  // in reduced-motion non c'è loop di render: ridipingo a mano quando serve
+  function paint() { if (reduce) renderer.render(scene, camera); }
+
+  // opacità dei livelli 3D: selezionato pieno, hover intermedio, riposo attenuato
+  function updateLayerVisuals(hoverName) {
+    for (var i = 0; i < layers.length; i++) {
+      var nm = layers[i].userData.name;
+      layers[i].material.opacity = (nm === selected) ? 1.0 : (nm === hoverName ? 0.95 : 0.85);
+    }
+  }
+
+  // riflette lo stato "selected" su card e fluttuazione dei livelli
+  function applySelection() {
     var key;
     for (key in cards) {
       if (cards[key]) {
@@ -116,63 +134,55 @@
         cards[key].classList.remove("block");
       }
     }
-    for (key in labels) {
-      if (labels[key]) {
-        labels[key].style.color = "#93a1bd";
-        labels[key].style.borderColor = "transparent";
-      }
-    }
     for (var i = 0; i < layers.length; i++) {
-      layers[i].userData.active = false;
+      // "active" = livello fermo (niente fluttuazione): quello selezionato
+      layers[i].userData.active = (layers[i].userData.name === selected);
     }
+    var toShow = (selected && cards[selected]) ? cards[selected] : cards.default;
+    if (toShow) {
+      toShow.classList.remove("hidden");
+      toShow.classList.add("block");
+    }
+    updateLayerVisuals(null);
+    paint();
   }
 
-  function onMouseMove(event) {
-    // coordinate mouse in spazio normalizzato [-1,1] richiesto dal raycaster
+  // raycast: nome del livello sotto il puntatore, o null
+  function pickLayer(event) {
     var rect = renderer.domElement.getBoundingClientRect();
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
     raycaster.setFromCamera(mouse, camera);
-    var intersects = raycaster.intersectObjects(layers);
+    var hits = raycaster.intersectObjects(layers);
+    return hits.length ? hits[0].object.userData.name : null;
+  }
 
-    resetDOMStates();
+  // CLICK: seleziona/blocca il livello; ri-clic sullo stesso o click a vuoto -> deseleziona
+  function onClick(event) {
+    var name = pickLayer(event);
+    selected = (name && name !== selected) ? name : null;
+    applySelection();
+  }
 
-    if (intersects.length > 0) {
-      var hitObject = intersects[0].object;   // il più vicino alla camera
-      var hitLayer = hitObject.userData.name;
-
-      hitObject.userData.active = true; // "active" = fermo la fluttuazione di questo livello
-
-      if (cards[hitLayer]) {
-        cards[hitLayer].classList.remove("hidden");
-        cards[hitLayer].classList.add("block");
-      }
-      if (cards.default) cards.default.classList.add("hidden");
-
-      if (labels[hitLayer]) {
-        var accent = hitLayer === "bi" ? "#22d3ee" : (hitLayer === "sap" ? "#2ee6b6" : "#3b82f6");
-        labels[hitLayer].style.color = "#eaf0ff";
-        labels[hitLayer].style.borderColor = accent;
-      }
-    } else {
-      if (cards.default) {
-        cards.default.classList.remove("hidden");
-        cards.default.classList.add("block");
-      }
-    }
+  // HOVER: solo cursore a manina + evidenziazione del livello (NON tocca la card)
+  function onMouseMove(event) {
+    var name = pickLayer(event);
+    renderer.domElement.style.cursor = name ? "pointer" : "default";
+    updateLayerVisuals(name);
+    paint();
   }
 
   function onMouseLeave() {
-    resetDOMStates();
-    if (cards.default) {
-      cards.default.classList.remove("hidden");
-      cards.default.classList.add("block");
-    }
+    renderer.domElement.style.cursor = "default";
+    updateLayerVisuals(null);
+    paint();
   }
 
+  mount.addEventListener("click", onClick);
   mount.addEventListener("mousemove", onMouseMove);
   mount.addEventListener("mouseleave", onMouseLeave);
+
+  applySelection(); // stato iniziale: card default visibile
 
   function onResize() {
     W = mount.clientWidth || 380;
@@ -214,6 +224,7 @@
   window.addEventListener("pagehide", function () {
     try {
       cancelAnimationFrame(frameId);
+      mount.removeEventListener("click", onClick);
       mount.removeEventListener("mousemove", onMouseMove);
       mount.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("resize", onResize);
@@ -226,4 +237,18 @@
       if (renderer.forceContextLoss) renderer.forceContextLoss();
     } catch (e) {}
   }, { once: true });
+  } // --- fine build() ---
+
+  build();
+
+  // bfcache: al ritorno "indietro" il canvas WebGL è morto (riquadro bianco). Invece
+  // di ricaricare la pagina (flash di ~1s su mobile), rimuovo il canvas morto e
+  // ricostruisco la scena in place: transizione fluida, nessun reload.
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) {
+      var deadCanvas = mount.querySelector("canvas");
+      if (deadCanvas && deadCanvas.parentNode) deadCanvas.parentNode.removeChild(deadCanvas);
+      build();
+    }
+  });
 })();

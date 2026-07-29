@@ -22,7 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     reply(false, 'Metodo non consentito.', 405);
 }
 
-$cfg = require dirname(__DIR__) . '/config.php';  // config.php sta in / (fuori dalla web root)
+// config.php: preferito FUORI dalla web root (dirname(__DIR__)); se lì non è
+// scrivibile (tipico su alcuni piani Aruba) ripiega su config.php nella stessa
+// cartella di invia.php, protetto dal .htaccess.
+$cfgPath = dirname(__DIR__) . '/config.php';
+if (!is_file($cfgPath)) { $cfgPath = __DIR__ . '/config.php'; }
+$cfg = require $cfgPath;
 
 /* --- Utilità ------------------------------------------------- */
 function post(string $k): string { return trim((string)($_POST[$k] ?? '')); }
@@ -215,7 +220,7 @@ curl_close($ch);
 
 // Graph /sendMail risponde 202 Accepted quando accetta il messaggio
 if ($code === 202) {
-    $d = !empty($cfg['debug']) ? ' [SENT HTTP 202 — mittente ' . $cfg['sender'] . ' → destinatario ' . $recipient . ']' : '';
+   // $d = !empty($cfg['debug']) ? ' [SENT HTTP 202 — mittente ' . $cfg['sender'] . ' → destinatario ' . $recipient . ']' : '';
     reply(true, 'Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo al più presto.' . $d);
 }
 
